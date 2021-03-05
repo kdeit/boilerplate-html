@@ -1,7 +1,6 @@
 const path = require('path');
 
 const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebpackPartialsPlugin = require('html-webpack-partials-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -51,30 +50,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'www', 'index.html')
         }),
-        new HtmlWebpackPartialsPlugin([
-            {
-                path: path.join(__dirname, 'www', 'partials', '_yaMetrika.html'),
-                priority: 'low',
-                location: 'head'
-            },
-            {
-                path: path.join(__dirname, 'www', 'partials', '_font.html'),
-                priority: 'low',
-                location: 'head'
-            },
-            {
-                path: path.join(__dirname, 'www', 'partials', '_favicon.html'),
-                priority: 'low',
-                location: 'head'
-            }
-        ]),
         new MiniCssExtractPlugin(),
-        
+
         new CopyPlugin({
             patterns: [
                 {from: path.resolve('app', 'src', 'assets', 'font', 'web-font.css'), to: 'web-font.css'},
                 {from: path.resolve('app', 'src', 'assets', 'favicons'), to: ''}
-                ]
+            ]
         })
     ]
 };

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Frontend developer KDE</title>
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Frontend developer KDE</title>
+        <%= require('html-loader?{"sources":false}!./partials/_favicon.html').default %> <%=
+        require('html-loader!./partials/_font.html').default %> <%=
+        require('html-loader!./partials/_yaMetrika.html').default %>
+    </head>
 
-  <body>
-    <div id="root">Hello</div>
-  </body>
+    <body>
+        <%= require('html-loader!./partials/_header.html').default %> <%=
+        require('html-loader!./partials/_footer.html').default %>
+
+        <div id="root"></div>
+    </body>
 </html>

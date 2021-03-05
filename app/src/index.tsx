@@ -1,3 +1,4 @@
 import './assets';
 
-console.warn('Init app')
+// eslint-disable-next-line no-console
+console.warn('Init app');

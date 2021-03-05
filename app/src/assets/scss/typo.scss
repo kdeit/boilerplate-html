@@ -1,0 +1,13 @@
+.t-overflow {
+    overflow: hidden;
+    line-height: 1.2;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    .ios-device & {
+        line-height: 1.25;
+    }
+}
+
+.t-main-20{
+    @include t-main-20;
+}

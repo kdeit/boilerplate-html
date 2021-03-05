@@ -1,0 +1,139 @@
+/*Own kdeitmixins*/
+$image-path: '/img' !default;
+$fallback-extension: 'png' !default;
+$retina-suffix: '@2x';
+@mixin background-image($name, $size:false) {
+    background-image: url(#{$image-path}/#{$name}.svg);
+    @if ($size) {
+        background-size: $size;
+    }
+    .no-svg & {
+        background-image: url(#{$image-path}/#{$name}.#{$fallback-extension});
+
+        @media only screen and (-moz-min-device-pixel-ratio: 1.5), only screen and (-o-min-device-pixel-ratio: 3/2), only screen and (-webkit-min-device-pixel-ratio: 1.5), only screen and (min-device-pixel-ratio: 1.5) {
+            background-image: url(#{$image-path}/#{$name}#{$retina-suffix}.#{$fallback-extension});
+        }
+    }
+}
+
+/* TRANSITION */
+@mixin transition($what: all, $length: 0.5s, $easing: ease-in-out) {
+    -moz-transition: $what $length $easing;
+    -o-transition: $what $length $easing;
+    -webkit-transition: $what $length $easing;
+    -ms-transition: $what $length $easing;
+    transition: $what $length $easing;
+}
+
+/* TRANSFORM  */
+@mixin transform($params) {
+    -webkit-transform: $params;
+    -moz-transform: $params;
+    transform: $params;
+}
+
+/* ROTATE*/
+@mixin rotate($deg: 0, $m11: 0, $m12: 0, $m21: 0, $m22: 0) {
+    filter: progid:DXImageTransform.Microsoft.Matrix(
+        M11=#{$m11}, M12=#{$m12}, M21=#{$m21}, M22=#{$m22}, sizingMethod='auto expand');
+    -moz-transform: rotate($deg + deg);
+    -o-transform: rotate($deg + deg);
+    -webkit-transform: rotate($deg + deg);
+    -ms-transform: rotate($deg + deg);
+    transform: rotate($deg + deg);
+    zoom: 1;
+}
+
+/* BOX SIZING */
+@mixin box-sizing($type: border-box) {
+    -webkit-box-sizing: $type;
+    -moz-box-sizing: $type;
+    box-sizing: $type;
+}
+@mixin border-radius-separate($topLeftRadius: 5px, $topRightRadius: 5px, $bottomLeftRadius: 5px, $bottomRightRadius: 5px) {
+    -webkit-border-bottom-left-radius:  $bottomLeftRadius;
+    border-bottom-left-radius:  $bottomLeftRadius;
+    -webkit-border-bottom-right-radius: $bottomRightRadius;
+    border-bottom-right-radius: $bottomRightRadius;
+    -moz-border-radius-bottomleft:  $bottomLeftRadius;
+    -moz-border-radius-bottomright: $bottomRightRadius;
+
+    -moz-border-radius-topleft:     $topLeftRadius;
+    -moz-border-radius-topright:    $topRightRadius;
+    -webkit-border-top-left-radius:     $topLeftRadius;
+
+    border-top-left-radius:     $topLeftRadius;
+    -webkit-border-top-right-radius:    $topRightRadius;
+    border-top-right-radius:    $topRightRadius;
+}
+
+/* BORDER RADIUS */
+@mixin border-radius($radius: 5px) {
+    -moz-border-radius: $radius;
+    -webkit-border-radius: $radius;
+    border-radius: $radius;
+}
+
+/* BOX SHADOW */
+@mixin box-shadow($x: 0, $y: 0, $blur: 40px, $color: rgba(0,0,0,0.2), $inset: "") {
+    @if ($inset != "") {
+        -webkit-box-shadow: $inset $x $y $blur $color;
+        -moz-box-shadow: $inset $x $y $blur $color;
+        box-shadow: $inset $x $y $blur $color;
+    } @else {
+        -webkit-box-shadow: $x $y $blur $color;
+        -moz-box-shadow: $x $y $blur $color;
+        box-shadow: $x $y $blur $color;
+    }
+}
+
+
+/* OPACITY */
+@mixin opacity($opacity) {
+    // IE8 filter
+    filter: unquote("alpha(opacity = (#{$opacity * 100}))");
+    opacity: $opacity;
+}
+
+/* BOX RGBA */
+@mixin box-rgba($r: 255, $g: 255, $b: 255, $opacity: 0.8, $color: #3C3C3C) {
+    background-color: transparent;
+    background-color: rgba($r, $g, $b, $opacity);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#{$color}',endColorstr='#{$color}');
+    zoom:   1;
+}
+
+/*TRANSFORM ORIGIN*/
+@mixin transform-origin($first,$second) {
+    -webkit-transform-origin: $first $second;
+    -moz-transform-origin: $first $second;
+    -o-transform-origin: $first $second;
+    -ms-transform-origin: $first $second;
+    transform-origin: $first $second;
+}
+
+@mixin perspective($params) {
+    -webkit-perspective: $params;
+    -moz-perspective: $params;
+    perspective: $params;
+}
+
+@mixin backface-visibility($params) {
+    -webkit-backface-visibility: $params;
+    -moz-backface-visibility: $params;
+    backface-visibility: $params;
+}
+
+@mixin visibility($params) {
+    -webkit-visibility: $params;
+    -moz-visibility: $params;
+    visibility: $params;
+}
+
+@mixin user-select($params) {
+    -webkit-user-select: $params;
+    -moz-user-select: $params;
+    -ms-user-select: $params;
+    user-select: $params;
+}
+

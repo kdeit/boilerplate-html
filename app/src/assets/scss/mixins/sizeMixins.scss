@@ -1,0 +1,14 @@
+$media-query: 1200px 900px 512px;
+$baselineArray: $baseline $baseline * 0.9 $baseline * 0.75 $baseline * 0.5;
+
+@mixin sizeByGridHor($propName, $koef: 1) {
+    #{$propName}: nth($baselineArray, 1) * $koef;
+    @each $current-media-query in $media-query {
+        $i: index($media-query, $current-media-query);
+        @media (max-width: $current-media-query) {
+            #{$propName}: nth($baselineArray, $i + 1) * $koef;
+        }
+    }
+}
+$min: -20;
+$max: 40;

@@ -1,0 +1,81 @@
+/* Вся типографика сайта*/
+$fontSizeArray: $textSize $textSize $textSize * 0.9 $textSize * 0.9 $textSize *
+    0.85 $textSize * 0.85 $textSize * 0.8;
+$lineHeightArray: $textSize * 1.6 $textSize * 1.6 $textSize * 1.5 $textSize *
+    1.5 $textSize * 1.4 $textSize * 1.4 $textSize * 1.4;
+
+@mixin setResponsiveSize($xs, $sm, $md, $lg, $xl, $xxl, $xxxl) {
+    font-size: $xs;
+    @media all and (min-width: 576px) {
+        font-size: $sm;
+    }
+    @media all and (min-width: 768px) {
+        font-size: $md;
+    }
+    @media all and (min-width: 992px) {
+        font-size: $lg;
+    }
+    @media all and (min-width: 1100px) {
+        font-size: $xl;
+    }
+    @media all and (min-width: 1441px) {
+        font-size: $xxl;
+    }
+    @media all and (min-width: 1600px) {
+        font-size: $xxxl;
+    }
+}
+
+@mixin fontSize($propName, $koef: 1) {
+    #{$propName}: nth($fontSizeArray, 1) * $koef;
+    @each $current-media-query in $media-query {
+        $i: index($media-query, $current-media-query);
+        @media (max-width: $current-media-query) {
+            #{$propName}: nth($fontSizeArray, $i + 1) * $koef;
+        }
+    }
+}
+
+@mixin lineHeight($propName, $koef: 1) {
+    #{$propName}: nth($lineHeightArray, 1) * $koef;
+    @each $current-media-query in $media-query {
+        $i: index($media-query, $current-media-query);
+        @media (max-width: $current-media-query) {
+            #{$propName}: nth($lineHeightArray, $i + 1) * $koef;
+        }
+    }
+}
+
+$fontSizeArray2: $textSize $textSize * 0.9 $textSize * 0.8 $textSize * 0.7
+    $textSize * 0.6 $textSize * 0.5 $textSize * 0.4;
+$lineHeightArray2: $textSize * 1.6 $textSize * 1.3 $textSize * 1.2 $textSize *
+    1.1 $textSize * 1 $textSize * 0.9 $textSize * 0.8;
+
+@mixin fontSize2($propName, $koef: 1) {
+    #{$propName}: nth($fontSizeArray2, 1) * $koef;
+    @each $current-media-query in $media-query {
+        $i: index($media-query, $current-media-query);
+        @media (max-width: $current-media-query) {
+            #{$propName}: nth($fontSizeArray2, $i + 1) * $koef;
+        }
+    }
+}
+
+@mixin lineHeight2($propName, $koef: 1) {
+    #{$propName}: nth($lineHeightArray2, 1) * $koef;
+    @each $current-media-query in $media-query {
+        $i: index($media-query, $current-media-query);
+        @media (max-width: $current-media-query) {
+            #{$propName}: nth($lineHeightArray2, $i + 1) * $koef;
+        }
+    }
+}
+
+$main-font-style: Verdana, sans-serif;
+
+@mixin t-main-20() {
+    font-family: $main-font-style;
+    @include setResponsiveSize(14px, 15px, 16px, 17px, 18px, 19px, 20px);
+    font-weight: normal;
+    line-height: 1.25;
+}

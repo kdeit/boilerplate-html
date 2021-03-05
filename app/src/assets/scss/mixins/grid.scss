@@ -1,0 +1,117 @@
+@import 'bootstrap';
+
+$grid-breakpoints: (
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px,
+    xxxl: 1600px
+) !default;
+
+$grid-columns: 12;
+$grid-gutter-width: 20px;
+
+.mobile-padding {
+    @include sizeByGridHor(padding-left, 9);
+    @include sizeByGridHor(padding-right, 9);
+    @media all and(min-width:992px) {
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+    &_md {
+        @media all and(min-width:768px) {
+            @include sizeByGridHor(padding-left, 1);
+            @include sizeByGridHor(padding-right, 1);
+        }
+    }
+}
+
+.container-fluid {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    @include box-sizing;
+    overflow-x: hidden;
+
+    @media all and(min-width:992px) {
+        padding-right: $grid-gutter-width / 2;
+        padding-left: $grid-gutter-width / 2;
+        overflow-x: initial;
+    }
+
+    &_min {
+        max-width: 1220px;
+    }
+    &_med {
+        max-width: 1420px;
+    }
+    &_max {
+        max-width: 1650px;
+    }
+}
+
+.row {
+    @include flexbox;
+    @include flex-wrap(wrap);
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+    // Add a `max-width` to ensure content within each column does not blow out
+    // the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
+    // do not appear to require this.
+    max-width: percentage($size / $columns);
+    flex: 0 0 percentage($size / $columns);
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+    $num: $size / $columns;
+    margin-left: if($num == 0, 0, percentage($num));
+}
+
+@include make-grid-columns();
+
+//custom column
+.col-25 {
+    position: relative;
+    width: 100%;
+    max-width: 20%;
+    min-height: 1px;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    @include flex(0, 0, 20%);
+}
+
+.col-xxl-25 {
+    @media (min-width: 1441px) {
+        @include flex(0, 0, 20%);
+        max-width: 20%;
+    }
+}
+.col-xl-25 {
+    @media (min-width: 1200px) {
+        @include flex(0, 0, 20%);
+        max-width: 20%;
+    }
+}
+.col-lg-25 {
+    @media (min-width: 992px) {
+        @include flex(0, 0, 20%);
+        max-width: 20%;
+    }
+}
+.col-md-25 {
+    @media (min-width: 768px) {
+        @include flex(0, 0, 20%);
+        max-width: 20%;
+    }
+}
+.col-sm-25 {
+    @media (min-width: 576px) {
+        @include flex(0, 0, 20%);
+        max-width: 20%;
+    }
+}

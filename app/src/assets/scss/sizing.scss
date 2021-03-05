@@ -1,0 +1,71 @@
+.p {
+    &--l__half {
+        @include sizeByGridHor(padding-left, 0.5);
+    }
+    &--r__half {
+        @include sizeByGridHor(padding-right, 0.5);
+    }
+    &--t__half {
+        @include sizeByGridHor(padding-top, 0.5);
+    }
+    &--b__half {
+        @include sizeByGridHor(padding-bottom, 0.5);
+    }
+    &--a__half {
+        @include sizeByGridHor(padding, 0.5);
+    }
+
+    @for $i from $min through $max {
+        &--l__#{$i} {
+            @include sizeByGridHor(padding-left, $i);
+        }
+        &--r__#{$i} {
+            @include sizeByGridHor(padding-right, $i);
+        }
+        &--t__#{$i} {
+            @include sizeByGridHor(padding-top, $i);
+        }
+        &--b__#{$i} {
+            @include sizeByGridHor(padding-bottom, $i);
+        }
+        &--a__#{$i} {
+            @include sizeByGridHor(padding, $i);
+        }
+    }
+}
+
+.m {
+    &--l__half {
+        @include sizeByGridHor(margin-left, 0.5);
+    }
+    &--r__half {
+        @include sizeByGridHor(margin-right, 0.5);
+    }
+    &--t__half {
+        @include sizeByGridHor(margin-top, 0.5);
+    }
+    &--b__half {
+        @include sizeByGridHor(margin-bottom, 0.5);
+    }
+    &--a__half {
+        @include sizeByGridHor(margin, 0.5);
+    }
+
+    @for $i from $min through $max {
+        &--l__#{$i} {
+            @include sizeByGridHor(margin-left, $i);
+        }
+        &--r__#{$i} {
+            @include sizeByGridHor(margin-right, $i);
+        }
+        &--t__#{$i} {
+            @include sizeByGridHor(margin-top, $i);
+        }
+        &--b__#{$i} {
+            @include sizeByGridHor(margin-bottom, $i);
+        }
+        &--a__#{$i} {
+            @include sizeByGridHor(margin, $i);
+        }
+    }
+}

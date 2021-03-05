@@ -1,0 +1,45 @@
+<script>
+    var root_url = '/web-font.css';
+    !(function () {
+        'use strict';
+        function a(a, b, c) {
+            a.addEventListener ? a.addEventListener(b, c, !1) : a.attachEvent && a.attachEvent('on' + b, c);
+        }
+        function b(a) {
+            return window.localStorage && localStorage.font_css_cache && localStorage.font_css_cache_file === a;
+        }
+        function c() {
+            if (window.localStorage && window.XMLHttpRequest)
+                if (b(e)) d(localStorage.font_css_cache);
+                else {
+                    var a = new XMLHttpRequest();
+                    a.open('GET', e, !0),
+                        (a.onreadystatechange = function () {
+                            4 === a.readyState &&
+                                (d(a.responseText),
+                                (localStorage.font_css_cache = a.responseText),
+                                (localStorage.font_css_cache_file = e));
+                        }),
+                        a.send();
+                }
+            else {
+                var c = document.createElement('link');
+                (c.href = e),
+                    (c.rel = 'stylesheet'),
+                    (c.type = 'text/css'),
+                    document.getElementsByTagName('head')[0].appendChild(c),
+                    (document.cookie = 'font_css_cache');
+            }
+        }
+        function d(a) {
+            var b = document.createElement('style');
+            b.setAttribute('type', 'text/css'),
+                b.styleSheet ? (b.styleSheet.cssText = a) : (b.innerHTML = a),
+                document.getElementsByTagName('head')[0].appendChild(b);
+        }
+        var e = root_url;
+        (window.localStorage && localStorage.font_css_cache) || document.cookie.indexOf('font_css_cache') > -1
+            ? c()
+            : a(window, 'load', c);
+    })();
+</script>

@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "module": "commonjs",
+    "allowJs": true,
+    "checkJs": false,
+
+    "noEmitOnError": true,
+
+    "strict": true,
+
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+
+    "esModuleInterop": true,
+    "inlineSourceMap": false,
+    "inlineSources": false,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+
+    "newLine": "lf"
+  },
+  "exclude": ["node_modules"]
+}

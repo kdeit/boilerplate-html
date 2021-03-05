@@ -1,0 +1,25 @@
+{
+  "extends": "../tsconfig.common.json",
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "../dist/server",
+    "rootDir": "./src",
+    "importHelpers": true,
+    "noEmitHelpers": true,
+
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+
+    "paths": {
+      "~~/*": ["./*"],
+      "@/*": ["../../@types/*.ts"]
+    },
+
+    "plugins": [
+      {
+        "transform": "typescript-transform-paths"
+      }
+    ]
+  }
+}

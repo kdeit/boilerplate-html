@@ -1,0 +1,111 @@
+{
+  "root": true,
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "plugins": ["@typescript-eslint", "prettier"],
+  "extends": [
+    "airbnb",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "prettier",
+    "prettier/react",
+    "prettier/@typescript-eslint"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [["~", "./app/src"], ["~~", "./server/src"], ["@", "./@types"]],
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"]
+      },
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"],
+        "moduleDirectory": ["app/src", "server/src", "node_modules"]
+      }
+    }
+  },
+  "rules": {
+    "no-console": "warn",
+    "no-plusplus": "off",
+    "no-continue": "off",
+    "no-shadow": "off",
+    "curly": ["warn", "all"],
+    "newline-before-return": "warn",
+    "@typescript-eslint/no-shadow": ["error"],
+    "import/extensions": [
+      "error",
+      "never",
+      {
+        "png": "always"
+      }
+    ],
+    "import/order": [
+      "warn",
+      {
+        "groups": ["builtin", "external", "internal", ["parent", "sibling"], "index"],
+        "pathGroups": [
+          {
+            "pattern": "types",
+            "patternOptions": {"matchBase": true},
+            "group": "index",
+            "position": "after"
+          },
+          {
+            "pattern": "@/**",
+            "patternOptions": {"matchBase": true},
+            "group": "index",
+            "position": "after"
+          },
+          {
+            "pattern": "~~/**",
+            "group": "internal"
+          },
+          {
+            "pattern": "~/**",
+            "group": "internal"
+          }
+        ],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": ["warn", {"extensions": [".tsx", ".jsx"]}],
+    "react/jsx-uses-react": "warn",
+    "react/jsx-indent": ["warn", 4],
+    "react/jsx-indent-props": ["warn", 4],
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": "off",
+    "react/button-has-type": "off",
+    "prettier/prettier": "warn"
+  },
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off"
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "parser": "@typescript-eslint/parser",
+      "rules": {
+        "no-undef": "off", // TODO https://github.com/typescript-eslint/typescript-eslint/issues/2477
+        "no-use-before-define": "off", // TODO https://github.com/typescript-eslint/typescript-eslint/issues/2502
+        "import/no-extraneous-dependencies": [
+          "error",
+          {"devDependencies": ["**/*.test.ts", "**/*.test.tsx", "jest.setup.ts"]}
+        ]
+      }
+    }
+  ]
+}

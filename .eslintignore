@@ -1,0 +1,12 @@
+/dist
+/docker
+/node_modules
+Procfile
+Dockerfile
+*.*
+
+!*.tsx
+!*.ts
+!*.jsx
+!*.js
+jest.setup.ts

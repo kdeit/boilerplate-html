@@ -9,7 +9,7 @@ Portfolio for frontend developer
 
 ---
 
-## Установка и запуск
+## Install and run
 1. Clone repo
 2. Run `yarn`
 3. Run app `yarn start`

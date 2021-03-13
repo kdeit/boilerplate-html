@@ -1,0 +1,21 @@
+.layout{
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    
+    &__inner{
+        display: flex;
+        width: 200%;
+        flex-wrap: nowrap;
+    }
+    &__left{
+        width: 50%;
+        min-height: 100vh;
+        background: grey;
+    }
+    &__right{
+        width: 50%;
+        min-height: 100vh;
+        background: green;
+    }
+}

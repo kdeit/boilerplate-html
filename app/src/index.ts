@@ -9,7 +9,7 @@ declare global {
 }
 
 const enablePage = (pageName: string) => {
-    const appWrapper = document.getElementById('app');
+    const appWrapper = document.getElementById('route');
     if (!appWrapper) {
         return;
     }
@@ -21,7 +21,7 @@ window.$Router = new Router();
 window.$Router.use('/', () => enablePage('index'));
 window.$Router.use('/about', () => enablePage('about'));
 window.$Router.use('/portfolio', () => enablePage('portfolio'));
-window.$Router.use('/not-found', () => enablePage('notFound'));
+window.$Router.use('/not-found', () => enablePage('not-found'));
 window.$Router.start();
 
 initAnimation();

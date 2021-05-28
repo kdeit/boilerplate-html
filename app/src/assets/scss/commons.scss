@@ -8,3 +8,14 @@
     height: 30px;
     @include background-image(logo);
 }
+
+.nav{
+    &__item{
+        display: block;
+        color:white;
+        text-decoration: none;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}

@@ -1,11 +1,6 @@
 Roadmap
 Header
-    Logo
-    Menu
-    Phone
-    Links
     CV
-Router
 About text
 Portfolio
     1 modern work

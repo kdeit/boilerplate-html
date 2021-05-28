@@ -1,3 +1,10 @@
 .btn{
     color: blue;
 }
+
+.logo{
+    display: block;
+    width: 30px;
+    height: 30px;
+    @include background-image(logo);
+}

@@ -49,7 +49,7 @@ export class Router {
         }
         if (el.tagName === 'A' || (link && link.tagName === 'A')) {
             const href = el.getAttribute('href') || link.getAttribute('href');
-            if (!href) {
+            if (!href || href.startsWith('http')) {
                 return;
             }
             e.preventDefault();

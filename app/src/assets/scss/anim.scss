@@ -1,0 +1,266 @@
+$ratio: 1.5;
+
+$colorBack1: #1d2731;
+$colorBack2: lighten(#1d2731, 20);
+$colorBack3: lighten(#1d2731, 30);
+$colorBack4: lighten(#1d2731, 40);
+$colorBack5: lighten(#1d2731, 50);
+
+.anim {
+    position: absolute;
+    z-index: 0;
+    top: 50%;
+    left: 50%;
+    width: 850px *$ratio;
+    height: 850px * $ratio;
+    @include transform(translateY(-50%) translateX(-50%));
+
+    &__item {
+        position: absolute;
+        opacity:0;
+        transition: all 1s 0.3s;
+        will-change: transform;
+        @include transform-origin(0, 0);
+        &.run{
+            opacity: 1;
+            transform: rotateZ(45deg);
+        }
+        &_backRotate{
+            &.run{
+                transform: rotateZ(-45deg);
+            }
+        }
+
+        &_red            {
+            background: $colorBack4;
+        }
+        &_yellow {
+            background: $colorBack5;
+        }
+
+        &_round {
+            bottom: 50px;
+            left: 0;
+            width: 550px *$ratio;
+            height: 550px *$ratio;
+            background: $colorBack1;
+            @include border-radius(50%);
+            @include transform-origin(50%, 50%);
+
+        }
+        &_rectangle {
+            top: 60px*$ratio;
+            left: 650px*$ratio;
+            width: 140px *$ratio;
+            height: 800px * $ratio;
+            background: $colorBack2;
+        }
+
+        &_rectangle2 {
+            top: 150px*$ratio;
+            left: 410px*$ratio;
+            width: 60px *$ratio;
+            height: 420px * $ratio;
+            background: $colorBack3;
+        }
+
+        &_rectangle3 {
+            top: 200px*$ratio;
+            left: 150px*$ratio;
+            width: 65px *$ratio;
+            height: 660px * $ratio;
+            background: $colorBack3;
+        }
+
+        &_rectangle4 {
+            top: 100px*$ratio;
+            left: 210px*$ratio;
+            width: 40px *$ratio;
+            height: 170px * $ratio;
+            background: $colorBack3;
+        }
+
+        &_rectangle5 {
+            top: 30px*$ratio;
+            left: 530px*$ratio;
+            width: 10px *$ratio;
+            height: 300px * $ratio;
+            background: $colorBack3;
+        }
+
+        &_rectangle6 {
+            top: 240px*$ratio;
+            left: 400px*$ratio;
+            width: 10px *$ratio;
+            height: 560px * $ratio;
+            background: $colorBack3;
+        }
+
+        &_rectangle7 {
+            top: 520px*$ratio;
+            left: 230px*$ratio;
+            width: 10px *$ratio;
+            height: 320px * $ratio;
+            background: $colorBack3;
+        }
+
+        &_rectangle8 {
+            top: 420px*$ratio;
+            left: 50px*$ratio;
+            width: 10px *$ratio;
+            height: 400px * $ratio;
+            background: $colorBack3;
+        }
+
+        &_rectangle9 {
+            top: 480px*$ratio;
+            left: 340px*$ratio;
+            width: 30px *$ratio;
+            height: 220px * $ratio;
+            background: $colorBack3;
+        }
+        &_rectangle10 {
+            top: 20px*$ratio;
+            left: 600px*$ratio;
+            width: 8px *$ratio;
+            height: 80px * $ratio;
+            background: $colorBack2;
+        }
+
+        &_rectangle11 {
+            top: 140px*$ratio;
+            left: 800px*$ratio;
+            width: 8px *$ratio;
+            height: 200px * $ratio;
+            background: $colorBack2;
+        }
+
+        &_rectangle12 {
+            top: 300px*$ratio;
+            left: 760px*$ratio;
+            width: 8px *$ratio;
+            height: 500px * $ratio;
+            background: $colorBack2;
+        }
+
+        &_rectangle13 {
+            top: 20px*$ratio;
+            left: 250px*$ratio;
+            width: 8px *$ratio;
+            height: 110px * $ratio;
+            background: $colorBack2;
+        }
+
+        &_rectangle14 {
+            top: 160px*$ratio;
+            left: 230px*$ratio;
+            width: 8px *$ratio;
+            height: 250px * $ratio;
+            background: $colorBack2;
+        }
+
+        &_rectangle15 {
+            top: 420px*$ratio;
+            left: 150px*$ratio;
+            width: 30px *$ratio;
+            height: 120px * $ratio;
+            background: $colorBack2;
+        }
+
+        &_rectangle16 {
+            top: 710px*$ratio;
+            left: 630px*$ratio;
+            width: 8px *$ratio;
+            height: 120px * $ratio;
+            background: $colorBack2;
+        }
+
+        &_rectangle17 {
+            top: 80px*$ratio;
+            left: 610px*$ratio;
+            width: 8px *$ratio;
+            height: 230px * $ratio;
+        }
+
+        &_rectangle18 {
+            top: 70px*$ratio;
+            left: 470px*$ratio;
+            width: 20px *$ratio;
+            height: 70px * $ratio;
+        }
+
+        &_rectangle19 {
+            top: 70px*$ratio;
+            left: 400px*$ratio;
+            width: 30px *$ratio;
+            height: 250px * $ratio;
+        }
+
+        &_rectangle20 {
+            top: 120px*$ratio;
+            left: 340px*$ratio;
+            width: 8px *$ratio;
+            height: 560px * $ratio;
+        }
+
+        &_rectangle21 {
+            top: 405px*$ratio;
+            left: 550px*$ratio;
+            width: 30px *$ratio;
+            height: 100px * $ratio;
+        }
+
+        &_rectangle22 {
+            top: 350px*$ratio;
+            left: 440px*$ratio;
+            width: 10px *$ratio;
+            height: 280px * $ratio;
+        }
+
+        &_rectangle23 {
+            top: 450px*$ratio;
+            left: 490px*$ratio;
+            width: 25px *$ratio;
+            height: 430px * $ratio;
+        }
+
+        &_rectangle24 {
+            top: 150px*$ratio;
+            left: 80px*$ratio;
+            width: 30px *$ratio;
+            height: 830px * $ratio;
+        }
+
+        &_rectangle25 {
+            top: 250px*$ratio;
+            left: 40px*$ratio;
+            width: 20px *$ratio;
+            height: 210px * $ratio;
+        }
+
+        &_rectangle26 {
+            top: 560px*$ratio;
+            left: 220px*$ratio;
+            width: 70px *$ratio;
+            height: 130px * $ratio;
+        }
+        &_rectangle27 {
+            top: 40px*$ratio;
+            left: 620px*$ratio;
+            width: 8px *$ratio;
+            height: 110px * $ratio;
+        }
+        &_rectangle28 {
+            top: 280px*$ratio;
+            left: 460px*$ratio;
+            width: 20px *$ratio;
+            height: 350px * $ratio;
+        }
+        &_rectangle29 {
+            top: 530px*$ratio;
+            left: 800px*$ratio;
+            width: 8px *$ratio;
+            height: 130px * $ratio;
+        }
+    }
+}

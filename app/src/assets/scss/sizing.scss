@@ -69,3 +69,13 @@
         }
     }
 }
+
+.m-level-1{
+    @include sizeByGridHor(margin-top, 8);
+}
+.m-level-2{
+    @include sizeByGridHor(margin-top, 4);
+}
+.m-level-3{
+    @include sizeByGridHor(margin-top, 2);
+}

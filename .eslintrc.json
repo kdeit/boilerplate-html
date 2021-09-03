@@ -7,7 +7,7 @@
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
-    "airbnb",
+    "airbnb-base",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/typescript",
     "prettier",
@@ -31,6 +31,9 @@
         "extensions": [".js", ".ts", ".tsx", ".json"],
         "moduleDirectory": ["app/src", "server/src", "node_modules"]
       }
+    },
+    "react": {
+      "version": false
     }
   },
   "rules": {
